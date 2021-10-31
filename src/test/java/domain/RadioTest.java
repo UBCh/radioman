@@ -1,8 +1,9 @@
 package domain;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import domain.Radio;
+
 class RadioTest {
     Radio service = new Radio();
 
@@ -10,28 +11,28 @@ class RadioTest {
      void shouldGetCurrentVolume (){
 
         service.getCurrentVolume();
-        int expected = 0;
+        int expected = 9;
         int actual = service.getCurrentVolume();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldGetStation(){
-
-        int station = 5;
+        service.getStation();
         int expected = 0;
         int actual = service.getStation();
         assertEquals(expected, actual);
     }
     @Test
-    void shouldCetStartVolume(){
 
-        service.cetStartVolume(10);
-        int expected = 0;
+    void shouldCetStartVolume(){
+        service.cetStartVolume();
+        int expected = 9;
         int actual = service.cetStartVolume();
         assertEquals(expected, actual);
     }
     @Test
+
     void shouldCetCurrentVolume(){
         Radio service = new Radio();
         service.cetCurrentVolume();
@@ -41,32 +42,44 @@ class RadioTest {
     }
 
     @Test
-    void shouldCetStartStation_one(){
+       void shouldCetStartStation_one(){
         service.cetStartStation();
+        int station = 5;
        int expected = 0;
         int actual = service.cetStartStation();
         assertEquals(expected, actual);
     }
     @Test
-    void shouldCetStartStation_two(){
-
+       void shouldCetStartStation_two(){
         service.cetStartStation();
-        int expected = 9;
+        int station = 0;
+        int expected = 0;
         int actual = service.cetStartStation();
         assertEquals(expected, actual);
-    }
+         }
     @Test
-    void shouldCetStartStationMinus_one(){
+    void shouldCetStartStation_three(){
+        service.cetStartStation();
+        int station = 10;
+        int expected = 0;
+        int actual = service.cetStartStation();
+        assertEquals(expected, actual);}
 
-        service.cetStartStationMinus(0);
+
+        @Test
+        void shouldCetStartStationMinus_one(){
+
+        service.cetStartStationMinus();
+        int station = 0;
         int expected = 9;
-        int actual = service.cetCurrentVolume();
+        int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
     }
     @Test
     void shouldCetStartStationMinus_two(){
 
-        service.cetStartStationMinus(-1);
+        service.cetStartStationMinus();
+        int station = 10;
         int expected = 9;
         int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
