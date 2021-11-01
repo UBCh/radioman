@@ -18,21 +18,21 @@ class RadioTest {
     @Test
     void shouldGetStation(){
         service.getStation();
-        int expected = 5;
+        int expected = 0;
         int actual = service.getStation();
         assertEquals(expected, actual);
     }
    @Test
     void shouldCetStation_one (){
            service.cetStation(11);
-       int expected = 5;
+       int expected = 0;
        int actual = service.getStation ();
        assertEquals(expected, actual);
    }
     @Test
     void shouldCetStation_two (){
         service.cetStation(-1);
-        int expected = 5;
+        int expected = 0;
         int actual = service.getStation ();
         assertEquals(expected, actual);
     }
@@ -51,6 +51,7 @@ class RadioTest {
         int actual = service.cetStartVolume ();
         assertEquals(expected, actual);
     }
+
     @Test
 
     void shouldCetCurrentVolume(){
@@ -66,7 +67,7 @@ class RadioTest {
         void shouldCetStartStationMinus_one(){
            service.cetStation(10);
            service.cetStartStationMinus();
-        int expected = 8;
+        int expected = 9;
         int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
     }
