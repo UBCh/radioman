@@ -18,8 +18,29 @@ class RadioTest {
     @Test
     void shouldGetStation(){
         service.getStation();
-        int expected = 0;
+        int expected = 5;
         int actual = service.getStation();
+        assertEquals(expected, actual);
+    }
+   @Test
+    void shouldCetStation_one (){
+           service.cetStation(11);
+       int expected = 5;
+       int actual = service.getStation ();
+       assertEquals(expected, actual);
+   }
+    @Test
+    void shouldCetStation_two (){
+        service.cetStation(-1);
+        int expected = 5;
+        int actual = service.getStation ();
+        assertEquals(expected, actual);
+    }
+    @Test
+    void shouldCetStation_three (){
+        service.cetStation(8);
+        int expected = 8;
+        int actual = service.getStation ();
         assertEquals(expected, actual);
     }
     @Test
@@ -43,52 +64,50 @@ class RadioTest {
 
         @Test
         void shouldCetStartStationMinus_one(){
-        service.cetStartStationMinus();
-        int station = 0;
-        int expected = 9;
+           service.cetStation(10);
+           service.cetStartStationMinus();
+        int expected = 8;
         int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
     }
     @Test
     void shouldCetStartStationMinus_two(){
-
+        service.cetStation(1);
         service.cetStartStationMinus();
-        int station = 10;
-        int expected = 9;
+        int expected = 0;
         int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
     }
     @Test
     void shouldCetStartStationMinus_three(){
-
+        service.cetStation(0);
         service.cetStartStationMinus();
-        int station = 5;
-        int expected = 4;
+        int expected = 9;
         int actual = service.cetStartStationMinus();
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldCetStartStation_one(){
-        service.cetStartStation();
-        int station = 0;
-        int expected = 4;
+        service.cetStation(0);
+           service.cetStartStation();
+        int expected = 1;
         int actual = service.cetStartStation();
         assertEquals(expected, actual);
     }
     @Test
     void shouldCetStartStation_two(){
+        service.cetStation(8);
         service.cetStartStation();
-        int station = 10;
-        int expected = 0;
+        int expected = 9;
         int actual = service.cetStartStation();
         assertEquals(expected, actual);
     }
     @Test
-    void shouldCetStartStation_three(){
+       void shouldCetStartStation_three(){
+        service.cetStation(9);
         service.cetStartStation();
-        int station = 5;
-        int expected = 6;
+        int expected = 0;
         int actual = service.cetStartStation();
         assertEquals(expected, actual);}
 

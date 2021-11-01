@@ -2,7 +2,7 @@ package domain;
 
 public class Radio {
     private int currentVolume = 5;
-    public int station;
+    private int station =0;
 
 
     public int getCurrentVolume() {
@@ -11,6 +11,11 @@ public class Radio {
 
     public int getStation() {
         return station;
+    }
+    public void cetStation (int newStation) {
+        if ( newStation < 0) { return;}
+        if ( newStation > 9) { return;}
+            station = newStation;
     }
 
     public int cetStartVolume() {
@@ -24,16 +29,14 @@ public class Radio {
     }
 
     public int cetStartStationMinus() {
-        if (station > 0) {
-       station =station - 1;
-       if (station< 0){ station =9;}}
-                return station;
+        if (station > 0) {return station -1;}
+        else {station = 10; return station ;}
     }
+
     public int cetStartStation() {
-        if (station < 10) {
-            station = station + 1;
-            if (station > 10){ station =0;}}
-       return station;
+        if (station < 9) {return station +1 ;}
+        else {station = -1; return station ;}
+
         }
 
 
