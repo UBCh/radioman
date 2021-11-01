@@ -1,8 +1,9 @@
 package domain;
 
 public class Radio {
-    private int currentVolume = 9;
+    private int currentVolume = 5;
     public int station;
+
 
     public int getCurrentVolume() {
         return currentVolume;
@@ -13,36 +14,33 @@ public class Radio {
     }
 
     public int cetStartVolume() {
-        if (currentVolume < 10) {
-            int newCurrentVolume = currentVolume + 1;
-        }
-        return 9;
+        if (currentVolume < 10){}
+        return currentVolume+ 1 ;
     }
 
     public int cetCurrentVolume() {
-        if (currentVolume > 0) {
-            int newCurrentVolume = currentVolume - 1;
-        }
-        return 0;
+        if (currentVolume > 0) {}
+        return currentVolume-1;
     }
 
     public int cetStartStationMinus() {
         if (station > 0) {
-            station = station - 1;
-        }
-        station = 9;
-        return station;
+       station =station - 1;
+       if (station< 0){ station =9;}}
+                return station;
     }
     public int cetStartStation() {
         if (station < 10) {
             station = station + 1;
+            if (station > 10){ station =0;}}
+       return station;
         }
 
-        return 0;
+
     }
 
 
-    }
+
 
 
 
