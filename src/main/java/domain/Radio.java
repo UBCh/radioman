@@ -13,30 +13,30 @@ public class Radio {
         return station;
     }
 
-    public void cetStation (int newStation) {
+    public void setStation (int newStation) {
         if ( newStation < 0) { return;}
         if ( newStation > 9) { return;}
             station = newStation;
     }
-    public void cetCurrentVolume (int newCurrentVolume) {
+    public void setCurrentVolume (int newCurrentVolume) {
         if ( newCurrentVolume < 0) { return;}
         if ( newCurrentVolume > 10) { return;}
         currentVolume = newCurrentVolume;
     }
 
-    public int cetStartVolume() {
+    public int setStartVolume() {
         if (currentVolume < 10) {return currentVolume +1;}
         else { return 10 ;}
         }
 
 
-    public int cetMinusVolume() {
+    public int setMinusVolume() {
         if (currentVolume > 0) {
             return currentVolume - 1;
         } else { return 0;}
     }
 
-        public int cetStartStationMinus() {
+        public int setStartStationMinus() {
             if (station > 0) {
                 return station - 1;
             } else {
@@ -45,7 +45,7 @@ public class Radio {
             }
         }
 
-        public int cetStartStation() {
+        public int setStartStation() {
             if (station < 9) {
                 return station + 1;
             } else {
