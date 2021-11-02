@@ -32,7 +32,7 @@ class RadioTest {
 
    @Test
     void shouldSetStation_two (){
-        service.stStation(-1);
+        service.setStation(-1);
         int expected = 0;
         int actual = service.getStation ();
         assertEquals(expected, actual);
