@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     Radio service = new Radio(10);
+    Radio manager = new Radio();
 
     @Test
     void shouldGetCurrentVolume() {

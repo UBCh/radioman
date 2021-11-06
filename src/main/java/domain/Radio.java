@@ -11,6 +11,7 @@ public class Radio {
     private int minStation = 0;
 
     public Radio() {
+
     }
 
     public Radio(int quantityStation) {
