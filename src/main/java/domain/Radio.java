@@ -59,31 +59,33 @@ public class Radio {
 
     public int setMinusVolume(int currentVolume) {
         if (currentVolume > 0) {
-            currentVolume = currentVolume - 1;}
-        else { currentVolume = minVolume; }
+            currentVolume = currentVolume - 1;
+        } else {
+            currentVolume = minVolume;
+        }
         return currentVolume;
     }
 
-        public int setStationMinus(int station) {
-            if (station > 0) {
-                station = station - 1;
+    public int setStationMinus(int station) {
+        if (station > 0) {
+            station = station - 1;
 
-            } else {
-                station = maxStation;
-            }
-            return station;
+        } else {
+            station = maxStation;
         }
-
-        public int setIncreaseStation(int station) {
-            if (station < maxStation) {
-                station = station + 1;
-
-            } else {
-                station = minStation;
-            }
-            return station;
-        }
+        return station;
     }
+
+    public int setIncreaseStation(int station) {
+        if (station < maxStation) {
+            station = station + 1;
+
+        } else {
+            station = minStation;
+        }
+        return station;
+    }
+}
 
 
 
