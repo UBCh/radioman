@@ -6,12 +6,11 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio service = new Radio(10);
+    Radio service = new Radio(20);
     Radio manager = new Radio();
 
     @Test
     void shouldGetCurrentVolume() {
-        service.getCurrentVolume();
         int expected = 10;
         int actual = service.getCurrentVolume();
         assertEquals(expected, actual);
@@ -20,165 +19,152 @@ class RadioTest {
 
     @Test
     void shouldGetStation() {
-        service.getStation();
         int expected = 0;
         int actual = service.getStation();
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetStation_one() {
-        service.setStation(10);
+    void shouldSetStationOne() {
         int expected = 0;
-        int actual = service.getStation();
+        int actual = service.setStation(0);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetStation_two() {
-        service.setStation(-1);
-        int expected = 9;
-        int actual = service.getStation();
+    void shouldSetStationTwo() {
+        int expected = 20;
+        int actual = service.setStation(-1);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetStation_three() {
-        service.setStation(8);
+    void shouldSetStationThree() {
         int expected = 8;
-        int actual = service.getStation();
+        int actual = service.setStation(8);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetCurrentVolume_one() {
-        service.setCurrentVolume(101);
-        int expected = 100;
-        int actual = service.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldSetCurrentVolume_two() {
-        service.setCurrentVolume(-1);
-        int expected = 0;
-        int actual = service.getCurrentVolume();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldSetCurrentVolume_three() {
-        service.setCurrentVolume(50);
+    void shouldSetCurrentVolumeOne() {
         int expected = 50;
-        int actual = service.getCurrentVolume();
+        int actual = service.setCurrentVolume(50);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shoulSetIncreaseVolume_one() {
-        service.setCurrentVolume(101);
-        service.setIncreaseVolume();
+    void shouldSetCurrentVolumeTwo() {
+        int expected = 0;
+        int actual = service.setCurrentVolume(-1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetCurrentVolumeThree() {
         int expected = 100;
-        int actual = service.setIncreaseVolume();
+        int actual =  service.setCurrentVolume(101);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shoulSetIncreaseVolume_two() {
-        service.setCurrentVolume(100);
-        service.setIncreaseVolume();
+    void shoulSetIncreaseVolumeOne() {
+        int expected = 51;
+        int actual =  service.setIncreaseVolume(50);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shoulSetIncreaseVolumeTwo() {
+        int v= service.setCurrentVolume(101);
         int expected = 100;
-        int actual = service.setIncreaseVolume();
+        int actual =  service.setIncreaseVolume(v);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCetStartVolume_three() {
-        service.setCurrentVolume(0);
-        service.setIncreaseVolume();
+    void shouldIncreaseVolumeThree() {
+       int v= service.setCurrentVolume(-1);
         int expected = 1;
-        int actual = service.setIncreaseVolume();
+       int actual = service.setIncreaseVolume(v);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetMinusVolume_one() {
-        service.setCurrentVolume(-1);
-        service.setMinusVolume();
+    void shouldSetMinusVolumeOne() {
+        int v= service.setCurrentVolume(-1);
         int expected = 0;
-        int actual = service.setMinusVolume();
+        int actual = service.setMinusVolume(v);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCetMinusVolume_two() {
-        service.setCurrentVolume(0);
-        service.setMinusVolume();
+    void shouldCetMinusVolumeTwo() {
+        int v=  service.setCurrentVolume(0);
         int expected = 0;
-        int actual = service.setMinusVolume();
+        int actual = service.setMinusVolume(v);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCetMinusVolume_three() {
-        service.setCurrentVolume(10);
-        service.setMinusVolume();
-        int expected = 9;
-        int actual = service.setMinusVolume();
+    void shouldCetMinusVolumeThree() {
+        int v= service.setCurrentVolume(10);
+       int expected = 9;
+        int actual = service.setMinusVolume(v);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldsetStationMinus_one() {
-        service.setStation(0);
-        service.setStationMinus();
-        int expected = 9;
-        int actual = service.setStationMinus();
+    void shouldSetStationMinusOne() {
+        int s= service.setStation(0);
+        int expected = 20;
+        int actual = service.setStationMinus(s);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCetStartStationMinus_two() {
-        service.setStation(1);
-        service.setStationMinus();
+    void shouldSetStationMinusTwo() {
+        int s= service.setStation(1);
         int expected = 0;
-        int actual = service.setStationMinus();
+        int actual = service.setStationMinus(s);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldCetStartStationMinus_three() {
-        service.setStation(9);
-        service.setStationMinus();
-        int expected = 8;
-        int actual = service.setStationMinus();
+    void shouldSetStationMinusThree() {
+        int s=service.setStation(20);
+        int expected = 19;
+        int actual = service.setStationMinus(s);
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldSetIncreaseStation_one() {
-        service.setStation(9);
-        service.setIncreaseStation();
+    void shouldSetIncreaseStationOne() {
+        int s=service.setStation(20);
         int expected = 0;
-        int actual = service.setIncreaseStation();
+        int actual = service.setIncreaseStation(s);
         assertEquals(expected, actual);
     }
 
     @Test
-    void SetIncreaseStation_two() {
-        service.setStation(0);
-        service.setIncreaseStation();
+    void SetIncreaseStationTwo() {
+        int s= service.setStation(0);
         int expected = 1;
-        int actual = service.setIncreaseStation();
+        int actual = service.setIncreaseStation(s);
         assertEquals(expected, actual);
     }
 
     @Test
-    void SetIncreaseStation_three() {
-        service.setStation(5);
-        service.setIncreaseStation();
-        int expected = 6;
-        int actual = service.setIncreaseStation();
+    void SetIncreaseStationThree() {
+        int s= service.setStation(-1);
+        int expected = 0;
+        int actual = service.setIncreaseStation(s);
         assertEquals(expected, actual);
     }
-}
+    @Test
+    void SetIncreaseStationFour() {
+        int s = service.setStationMinus( service.setStationMinus(service.setStationMinus(service.setStationMinus(service.setStation(20)))));
+        int expected = 15;
+        int actual = service.setStationMinus(s);
+        assertEquals(expected, actual);
+    }
+    }
