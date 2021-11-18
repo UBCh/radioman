@@ -13,63 +13,77 @@ public class Radio {
         return station;
     }
 
-    public void setStation(int newStation) {
+    public int setStation(int newStation) {
         if (newStation < 0) {
-            return;
+
+            newStation = 9;
         }
         if (newStation > 9) {
-            return;
+            newStation = 0;
         }
         station = newStation;
+        return station;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
+    public int setCurrentVolume(int newCurrentVolume) {
         if (newCurrentVolume < 0) {
-            return;
+            newCurrentVolume = 0;
         }
         if (newCurrentVolume > 10) {
-            return;
+            newCurrentVolume = 10;
         }
         currentVolume = newCurrentVolume;
+        return currentVolume;
     }
 
     public int setStartVolume() {
+        int volume = 0;
         if (currentVolume < 10) {
-            return currentVolume + 1;
+            volume = currentVolume + 1;
         } else {
-            return 10;
+            volume = 10;
+
         }
+        return volume;
     }
 
 
     public int setMinusVolume() {
+        int volume = 0;
         if (currentVolume > 0) {
-            return currentVolume - 1;
+            volume = currentVolume - 1;
         } else {
-            return 0;
+            volume = 0;
+
         }
+        return volume;
     }
 
     public int setStartStationMinus() {
+        int stan = 0;
         if (station > 0) {
-            return station - 1;
+            stan = station - 1;
         } else {
-            station = 10;
-            return station;
+            stan = 9;
         }
+        return stan;
     }
 
     public int setStartStation() {
+        int stan = 0;
         if (station < 9) {
-            return station + 1;
+            stan = station + 1;
         } else {
-            station = -1;
-            return station;
+            stan = 0;
+
         }
+        return stan;
 
     }
 
 }
+
+
 
 
 
