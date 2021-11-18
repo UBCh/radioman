@@ -40,8 +40,8 @@ class RadioTest {
 
     @Test
     void shouldSetStationThree() {
-        int expected = 8;
-        int actual = service.setStation(8);
+        int expected = 0;
+        int actual = service.setStation(21);
         assertEquals(expected, actual);
     }
 
