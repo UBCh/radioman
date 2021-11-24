@@ -24,7 +24,7 @@ public class Radio {
     public int getStation() {
         return station;
     }
-    public int getQuantityStation (int quantityStation) {return quantityStation;}
+    public int getQuantityStation(int quantityStation) {return quantityStation;}
 
     public int setCurrentVolume(int currentVolume) {
         if (currentVolume < 0) {

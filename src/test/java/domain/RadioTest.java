@@ -14,8 +14,9 @@ class RadioTest {
         int actual = service.getCurrentVolume();
         assertEquals(expected, actual);
     }
+
     @Test
-    void shouldgetQuantityStation () {
+    void shouldgetQuantityStation() {
         int expected = 20;
         int actual = service.getQuantityStation(20);
         assertEquals(expected, actual);
