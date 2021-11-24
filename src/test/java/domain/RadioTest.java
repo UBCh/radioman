@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
     Radio service = new Radio(20);
-    Radio manager = new Radio();
 
     @Test
     void shouldGetCurrentVolume() {
@@ -15,7 +14,12 @@ class RadioTest {
         int actual = service.getCurrentVolume();
         assertEquals(expected, actual);
     }
-
+    @Test
+    void shouldgetQuantityStation () {
+        int expected = 20;
+        int actual = service.getQuantityStation(20);
+        assertEquals(expected, actual);
+    }
 
     @Test
     void shouldGetStation() {
@@ -33,7 +37,7 @@ class RadioTest {
 
     @Test
     void shouldSetStationTwo() {
-        int expected = 20;
+        int expected = 19;
         int actual = service.setStation(-1);
         assertEquals(expected, actual);
     }
@@ -116,7 +120,7 @@ class RadioTest {
     @Test
     void shouldSetStationMinusOne() {
         int s = service.setStation(0);
-        int expected = 20;
+        int expected = 19;
         int actual = service.setStationMinus(s);
         assertEquals(expected, actual);
     }
@@ -140,7 +144,7 @@ class RadioTest {
     @Test
     void shouldSetIncreaseStationOne() {
         int s = service.setStation(20);
-        int expected = 0;
+        int expected = 1;
         int actual = service.setIncreaseStation(s);
         assertEquals(expected, actual);
     }
